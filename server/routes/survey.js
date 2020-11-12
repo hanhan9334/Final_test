@@ -11,7 +11,7 @@ router.get('/list', surveyController.displaySurveyList);
 router.post('/add', surveyController.createSurvey);
 
 // api: display one survey
-router.get('/detail/:id', surveyController.viewSurvey);
+router.get('/view/:id', surveyController.viewSurvey);
 
 // api: update the edited survey
 router.post('/edit/:id', surveyController.editSurvey);
