@@ -30,6 +30,7 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^0.1100.0",
     "nodemon": "^2.0.6"
   }
 }
