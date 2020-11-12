@@ -6,9 +6,11 @@
     "team1c": {
       "projectType": "application",
       "schematics": {
+
         "@schematics/angular:class": {
           "skipTests": true
         },
+        
         "@schematics/angular:component": {
           "skipTests": true
         },
