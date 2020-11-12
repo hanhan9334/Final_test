@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddComponent } from './pages/add/add.component';
 import { SurveyListModule } from './survey-list/survey-list.module';
 import { PagesModule } from './pages/pages.module';
 import { PartialsModule } from './partials/partials.modules';
@@ -14,7 +15,8 @@ export function jwtTokenGetter(): string
 }
 @NgModule({
   declarations: [
-    AppComponent,   
+    AppComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
