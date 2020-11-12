@@ -46,10 +46,9 @@ export class RestDataSource
     {
         return this.http.get<Survey[]>(this.baseUrl + 'survey/edit/'+id);
     } 
-    deleteSurvey(id: number): Observable<void>
+    deleteSurvey(id: number): Observable<{}>
     {
-        console.log(this.baseUrl+ 'survey/del/'+id);
-        return this.http.get<void>(this.baseUrl+ 'survey/del/'+id);
+        return this.http.delete(this.baseUrl+ 'survey/del/'+id);
     }
     private loadToken(): void
     {

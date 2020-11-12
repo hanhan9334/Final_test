@@ -18,6 +18,7 @@ export class SurveyRepository
                 .filter((n, index, array) => array.indexOf(n) === index).sort();
         });
     }
+    editSurvey(id:number, survey)
     deleteSurvey(id:number)
     {  
         this.datasource.deleteSurvey(id);

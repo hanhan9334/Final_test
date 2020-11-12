@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Survey } from '../model/survey.model';
 import { SurveyRepository } from './../model/survey.repository';
+
 @Component({
   selector: 'app-survey-list',
   templateUrl: './survey-list.component.html',
   styleUrls: ['./survey-list.component.css']
 })
+
 export class SurveyListComponent 
 {
   public selectedTitle = null;
-  public selectedSurvey = null;
   public surveyPerPage = 4;
   public selectedPage = 1;
+  public message = null;
 
 
   constructor(private repository: SurveyRepository) { }
@@ -29,12 +31,14 @@ export class SurveyListComponent
   changeTitle(newTitle?: string): void{
     this.selectedTitle = newTitle;
   }
-  deleteSurvey(id?: number): void{
+  deleteSurvey(id: number)
+  {
      
       if(confirm('Are you sure to delete?'))
       {
-        console.log(id);
-        this.repository.deleteSurvey(id);
+        this.repository.deleteSurvey(id)/*.subscribe( data => {
+          console.log(data)
+          });*/
       }
   }
   changePage(newPage: number): void

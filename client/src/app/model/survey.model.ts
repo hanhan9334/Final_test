@@ -10,4 +10,11 @@ export class Survey
     {
         return 'Survey --------------------- Name: ${this.name}';
     }
+    /*
+    clear(): void
+    {
+        this._id = null;
+        this.title = null;
+        this.questions = null;
+    }*/
 }

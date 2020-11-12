@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
+import { Survey } from '../../model/survey.model';
+import { SurveyRepository } from '../../model/survey.repository';
 
 @Component({
   selector: 'app-edit',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-
-  constructor() { }
+  surveySent = false;
+  submitted = false;
+  constructor(public repository: SurveyRepository) { }
 
   ngOnInit(): void {
+  }
+  editSurvey(form: NgForm): void
+  {
+    this.submitted = true;
+    if(form.valid)
+    {
+      this.repository.edit
+    }
   }
 
 }

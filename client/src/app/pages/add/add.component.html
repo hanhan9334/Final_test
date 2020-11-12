@@ -4,13 +4,7 @@
         <h1>Create Survey</h1>
         </div>
         <hr>  
-        <div class="form-group">
-            <label for=title>  Title</label>
-            <input type="text" class="form-control"
-            id="title"
-            placeholder="Title"
-            name="title" required>
-        </div>  
+
         <!--
         <div class="form-group">
             <label for="dueDate">  Closing Time</label>
@@ -19,19 +13,33 @@
             name="dueDate" required>
         </div>  -->
         <hr>  
-            <form>
+            <form #form = 'ngForm' novalidate (ngSubmit) = 'submitOrder(form)'>
                 <div class="form-group">
+                    <label for=title>  Title</label>
+                    <input  name = 'title' class="form-control"
+                    id="title"
+                    #title = 'ngModel'
+                    [(ngMode)] = 'survey.Title'
+                    placeholder="Title"
+                    name="title" required>
+                </div>  
+                <div class="form-group">
+                    
                     <label for="Q1">  Question 1</label>
-                    <input type="text" class="form-control"
+                    <input  class="form-control"
+                    #q1 = 'ngModel' 
+                    [(ngMode)] = 'survey.questions[1]'
                     id="Q1"
                     placeholder="Enter your question"
                     name="Q1" required>
                 </div>    
                 
                 <div class="form-group">
-                    <label for="Q1">  Question 2</label>
+                    <label for="Q2">  Question 2</label>
                     <input type="text" class="form-control"
-                    id="Q1"
+                    #q2 = 'ngModel'
+                    [(ngMode)] = 'survey.questions[2]'
+                    id="Q2"
                     placeholder="Enter your question"
                     name="Q2" >
                 </div>  
@@ -40,6 +48,8 @@
                     <label for="Q1">  Question 3</label>
                     <input type="text" class="form-control"
                     id="Q3"
+                    [(ngMode)] = 'survey.questions[3]'
+                    #q3 = 'ngModel'
                     placeholder="Enter your question"
                     name="Q3" >
                 </div>  
@@ -49,6 +59,8 @@
                     <label for="Q4"></label>
                     <input type="text" class="form-control"
                     id="Q4"
+                    #q4 = 'ngModel'
+                    [(ngMode)] = 'survey.questions[4]'
                     placeholder="Enter your question"
                     name="Q4" >
                 </div> 
@@ -56,7 +68,7 @@
                 <div class="center">
                 <button type="submit" class="btn btn-warning">Submit</button> 
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <button type="button" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-secondary">Cancel</button>
                     </div>
             </form>
     </div>
