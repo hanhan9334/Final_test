@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { SurveyListComponent } from './survey-list/survey-list.component';
 import { EditComponent } from './pages/edit/edit.component';
 import { AddComponent } from './pages/add/add.component';
-
 /*mport { StoreFirstGuard } from './guards/storeFirst.guard';*/
 
 const routes: Routes = [
