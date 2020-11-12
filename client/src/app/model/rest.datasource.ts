@@ -31,7 +31,7 @@ export class RestDataSource
 
     getSurveys(): Observable<Survey[]>
     {
-        return this.http.get<Survey[]>(this.baseUrl + 'survey-list');
+        return this.http.get<Survey[]>(this.baseUrl + 'survey/list');
     }
     private loadToken(): void
     {
