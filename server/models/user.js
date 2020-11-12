@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
     },
     surveys:{
         type:Array,
-        items:{
+        surveyID:{
             type:String
         }
     }

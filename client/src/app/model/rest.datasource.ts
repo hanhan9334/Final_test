@@ -5,7 +5,7 @@ import { Survey} from './survey.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 const PROTOCOL = 'http';
-const PORT = 3500;
+const PORT = 3000;
 
 
 @Injectable()
@@ -14,7 +14,7 @@ export class RestDataSource
     baseUrl: string;
     authToken: string;
 
-    private httpOoptions = 
+    private httpOptions = 
     {
         headers: new  HttpHeaders({
             'Content-Type': 'application/json',
@@ -26,17 +26,35 @@ export class RestDataSource
     
     constructor(private http: HttpClient, private jwtService: JwtHelperService)
     {
-        this.baseUrl = '${PROTOCOL}://${location.hostname}:${PORT}/';
+        this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
     }
 
     getSurveys(): Observable<Survey[]>
     {
-        return this.http.get<Survey[]>(this.baseUrl + 'survey-list');
+        return this.http.get<Survey[]>(this.baseUrl + 'survey/list');
+    }
+    getSurvey(id: number): Observable<Survey>
+    {
+        return this.http.get<Survey>(this.baseUrl + 'suvey/edit/'+id);
+    }
+    addSurvey(survey: Survey): Observable<Survey>
+    {
+        console.log(JSON.stringify(survey));
+        return this.http.post<Survey>(this.baseUrl+ 'survey/add', survey);
+    }
+    editSurvey(id: number): Observable<Survey>
+    {
+        return this.http.get<Survey[]>(this.baseUrl + 'survey/edit/'+id);
+    } 
+    deleteSurvey(id: number): Observable<{}>
+    {
+        return this.http.delete(this.baseUrl+ 'survey/del/'+id);
     }
     private loadToken(): void
     {
         const token = localStorage.getItem('id_token');
         this.authToken = token;
-        this.httpOoptions.headers = this.httpOoptions.headers.set('Authorization', this.authToken);
+        this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
     }
+    
 }

@@ -2,13 +2,19 @@ export class Survey
 {
     constructor(
         public _id?: number,
-        public name?: string,
-        public email?: string,
-        public published?: string
+        public title?: string,
+        public questions?: string[]
 
     ){}
     public toString(): string
     {
-        return 'Book --------------------- Name: ${this.name}';
+        return 'Survey --------------------- Name: ${this.name}';
     }
+    /*
+    clear(): void
+    {
+        this._id = null;
+        this.title = null;
+        this.questions = null;
+    }*/
 }

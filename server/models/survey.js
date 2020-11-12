@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 const surveySchema = new mongoose.Schema({
-
+    userID: {
+        type: String
+    },
     title: {
         type: String,
         required: true
