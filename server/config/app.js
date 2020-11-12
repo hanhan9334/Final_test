@@ -14,12 +14,14 @@ let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
 let flash = require('connect-flash');
+let cors = require('cors');
 
 // database setup
 require("./mongoose");
 
 // routers
 let indexRouter = require('../routes/index');
+let surveyRouter = require('../routes/survey');
 // let usersRouter = require('../routes/users');
 
 // for relative paths
@@ -38,9 +40,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
+app.use(cors());
 
 // set the pages
 app.use('/', indexRouter);
+app.use('/survey', surveyRouter);
 // app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
