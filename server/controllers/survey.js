@@ -53,7 +53,7 @@ module.exports.editSurvey = (req, res, next)=>{
 
 // api: delete a survey
 module.exports.deleteSurvey = (req, res, next)=>{
-    Survey.findOneAndRemove(req.params.id, (err, deletedSurvey) => {
+    Survey.findByIdAndRemove(req.params.id, (err, deletedSurvey) => {
         if (err) {
             return console.log(err);
         } else {

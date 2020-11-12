@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Survey } from './survey.model';
 import { StaticDataSource } from './static.datasource';
 import { RestDataSource } from './rest.datasource';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class SurveyRepository
@@ -17,10 +18,18 @@ export class SurveyRepository
                 .filter((n, index, array) => array.indexOf(n) === index).sort();
         });
     }
+    deleteSurvey(id:number)
+    {  
+        this.datasource.deleteSurvey(id);
+    }
+    saveSurvey(survey: Survey): Observable<Survey>
+    {
+        return this.datasource.addSurvey(survey);
+    }
     getSurveys(title: string = null): Survey[]
     {
         return this.surveys
-            .filter(s => title == null || name === s.title);
+            .filter(s => title == null || title === s.title);
     }
     getSurvey(id: number): Survey
     {

@@ -33,6 +33,24 @@ export class RestDataSource
     {
         return this.http.get<Survey[]>(this.baseUrl + 'survey/list');
     }
+    getSurvey(id: number): Observable<Survey>
+    {
+        return this.http.get<Survey>(this.baseUrl + 'suvey/edit/'+id);
+    }
+    addSurvey(survey: Survey): Observable<Survey>
+    {
+        console.log(JSON.stringify(survey));
+        return this.http.post<Survey>(this.baseUrl+ 'survey/add', survey);
+    }
+    editSurvey(id: number): Observable<Survey>
+    {
+        return this.http.get<Survey[]>(this.baseUrl + 'survey/edit/'+id);
+    } 
+    deleteSurvey(id: number): Observable<void>
+    {
+        console.log(this.baseUrl+ 'survey/del/'+id);
+        return this.http.get<void>(this.baseUrl+ 'survey/del/'+id);
+    }
     private loadToken(): void
     {
         const token = localStorage.getItem('id_token');
