@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SurveyComponent } from './pages/survey/survey.component';
 import { BasePageComponent } from './partials/base-page/base-page.component';
+import { AddComponent } from './pages/add/add.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { BasePageComponent } from './partials/base-page/base-page.component';
     LandingComponent,
     SurveyComponent,
     BasePageComponent,
+    AddComponent,
    
   ],
   imports: [
