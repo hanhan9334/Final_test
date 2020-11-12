@@ -8,6 +8,6 @@ export class Survey
     ){}
     public toString(): string
     {
-        return 'Book --------------------- Name: ${this.name}';
+        return 'Survey --------------------- Name: ${this.name}';
     }
 }
